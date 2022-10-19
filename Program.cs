@@ -24,7 +24,7 @@ namespace RPS_Lists
             Console.WriteLine($" The Bot has {number_Bwins}  Wins!");
             
         }
-        static void DeclareWiner()
+        static void DeclareWinner()
         {
             if (number_Pwins == 3 || number_Bwins == 3 )
             {
@@ -51,24 +51,27 @@ namespace RPS_Lists
                 List<string> list1 = new List<string>();
                     list1.Add(player_answer);
                     list1.Add(bot_answer);
-                    list1.ForEach(Console.WriteLine);
+                   
                 while (player_answer != "ROCK" && player_answer != "PAPER" && player_answer != "SCISSORS")
                 {
                     Console.WriteLine("Enter Rock, Paper,Scissors!");
                     string wronginput = Console.ReadLine();
                     string upperString = wronginput.ToUpper();
+
                     if (upperString == "ROCK" || upperString == "PAPER" || upperString == "SCISSORS")
                         break;
                 }
+                list1.ForEach(Console.WriteLine);
 
                 if (bot_answer != player_answer)
                     {
+                    var sortedList = list1.OrderBy(x => x).ToList();
+                    bool who_wins = list1.SequenceEqual(sortedList);
 
 
-                        var sortedList = list1.OrderBy(x => x).ToList();
-                        bool who_wins = list1.SequenceEqual(sortedList);
 
-                        if (player_answer == "PAPER" && bot_answer == "SCISSORS")
+
+                    if (player_answer == "PAPER" && bot_answer == "SCISSORS")
                         {
                             who_wins = false;
                         }
@@ -94,7 +97,7 @@ namespace RPS_Lists
 
 
 
-            DeclareWiner();
+            DeclareWinner();
 
             
 
