@@ -55,12 +55,15 @@ namespace RPS_Lists
                 while (player_answer != "ROCK" && player_answer != "PAPER" && player_answer != "SCISSORS")
                 {
                     Console.WriteLine("Enter Rock, Paper,Scissors!");
-                    string wronginput = Console.ReadLine();
-                    string upperString = wronginput.ToUpper();
+                    input = Console.ReadLine();
+                    player_answer = input.ToUpper();
 
-                    if (upperString == "ROCK" || upperString == "PAPER" || upperString == "SCISSORS")
-                        break;
+                    if (player_answer == "ROCK" || player_answer == "PAPER" || player_answer == "SCISSORS")
+                        list1.Insert( 0, player_answer);
+                        list1.RemoveAt(1);
+                    break;
                 }
+               
                 list1.ForEach(Console.WriteLine);
 
                 if (bot_answer != player_answer)
